@@ -1,11 +1,10 @@
-import { Award, ShieldCheck } from "lucide-react";
+import { Award } from "lucide-react";
 import { certifications } from "@/data/profile";
 import { Reveal } from "./Reveal";
 
 const ISSUER_STYLE = {
   "Amazon Web Services": { color: "#F3B65D", mark: "AWS" },
   Oracle: { color: "#FF6B5B", mark: "ORACLE" },
-  CompTIA: { color: "#4ADE9B", mark: "CompTIA" },
 } as const;
 
 export function CertGrid({ detailed = false }: { detailed?: boolean }) {
@@ -13,7 +12,7 @@ export function CertGrid({ detailed = false }: { detailed?: boolean }) {
     <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {certifications.map((c, i) => {
         const s = ISSUER_STYLE[c.issuer];
-        const Icon = c.issuer === "CompTIA" ? ShieldCheck : Award;
+        const Icon = Award;
         return (
           <Reveal as="li" key={c.id} delay={i * 0.06} className="glass glass-hover group relative overflow-hidden p-6">
             <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-40 blur-2xl transition-opacity group-hover:opacity-70" style={{ background: s.color }} aria-hidden="true" />

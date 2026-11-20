@@ -20,7 +20,7 @@ export type Project = {
   challenge: string;
   approach: { title: string; body: string }[];
   services: string[];
-  troubleshooting?: { issue: string; cause: string; fix: string }[];
+  troubleshooting?: { issue: string; cause?: string; fix?: string }[];
   outcomes: string[];
   lessons: string[];
   evidence?: string;
@@ -261,10 +261,10 @@ export const projects: Project[] = [
     ],
     services: ["ECS", "Fargate", "Application Load Balancer", "RDS MariaDB", "VPC", "Security Groups", "IAM Roles", "CloudWatch", "Terraform"],
     troubleshooting: [
-      { issue: "ALB returned 503 errors", cause: "No healthy targets registered in the target group", fix: "Worked back from target health to the task, port and network configuration." },
-      { issue: "Unhealthy targets", cause: "Health checks failing on the container", fix: "Investigated health-check, port and security-group settings." },
-      { issue: "Tasks failed to start", cause: "Execution-role trust relationship", fix: "Reviewed and corrected the task execution role trust relationship." },
-      { issue: "WordPress could not reach the database", cause: "Database connectivity between tasks and RDS", fix: "Checked security-group rules between tasks and RDS and the database connection settings." },
+      { issue: "ALB 503 errors" },
+      { issue: "Unhealthy targets in the target group" },
+      { issue: "ECS task execution-role trust" },
+      { issue: "Database connectivity between tasks and RDS" },
     ],
     outcomes: [
       "A reproducible, Terraform-defined WordPress platform on serverless containers.",
@@ -322,13 +322,15 @@ export const projects: Project[] = [
       { title: "Cluster deployment", body: "Deployed AWS ParallelCluster, which provisions the cluster through CloudFormation stacks." },
       { title: "Slurm scheduling", body: "Worked with a Slurm-based head node and compute fleet on Linux EC2 instances." },
       { title: "Locked-down access", body: "SSH key pairs and security groups restricted to a single /32 CIDR." },
-      { title: "Troubleshooting", body: "Diagnosed SSH timeouts, key permissions, network rules, public IP connectivity and cluster configuration." },
+      { title: "Troubleshooting", body: "Troubleshot SSH timeouts, key permissions, network rules, public IP connectivity and cluster configuration issues." },
     ],
     services: ["AWS ParallelCluster", "CloudFormation", "EC2", "Security Groups", "SSH Key Pairs", "Slurm", "Linux"],
     troubleshooting: [
-      { issue: "SSH connection timed out", cause: "Network rules and public IP connectivity", fix: "Verified security-group rules, the /32 source CIDR and the head node's public IP." },
-      { issue: "SSH key rejected", cause: "Private-key file permissions", fix: "Checked and corrected the key file permissions." },
-      { issue: "Cluster configuration errors", cause: "Configuration settings", fix: "Reviewed and corrected the cluster configuration before redeploying." },
+      { issue: "SSH timeouts" },
+      { issue: "SSH key permissions" },
+      { issue: "Network rules" },
+      { issue: "Public IP connectivity" },
+      { issue: "Cluster configuration issues" },
     ],
     outcomes: ["A working Slurm-based HPC environment on AWS, provisioned through CloudFormation.", "SSH access restricted to a single trusted address."],
     lessons: ["When SSH times out, check the network path (security group, CIDR, public IP) before the key.", "Restrictive /32 rules are secure but must be updated when your IP changes."],

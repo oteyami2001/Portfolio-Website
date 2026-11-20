@@ -1,9 +1,9 @@
-import { Briefcase, Handshake, MessageSquare } from "lucide-react";
+import { Briefcase, Handshake, Mail, MessageSquare, Phone } from "lucide-react";
 import { PageHeader } from "@/components/PageHeader";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { GitHubIcon, LinkedInIcon } from "@/components/BrandIcons";
-import { contactEmail, profile } from "@/data/profile";
+import { contactEmail, contactPhone, profile } from "@/data/profile";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -39,6 +39,14 @@ export default function ContactPage() {
               </Reveal>
             ))}
             <Reveal className="grid gap-3 sm:grid-cols-2">
+              <a href={`mailto:${contactEmail}`} className="glass glass-hover flex items-center gap-3 p-5">
+                <Mail className="h-6 w-6 shrink-0 text-cyan-300" aria-hidden="true" />
+                <span className="min-w-0"><span className="block font-semibold text-white">Email</span><span className="block break-all text-xs text-mist-400">{contactEmail}</span></span>
+              </a>
+              <a href={`tel:${contactPhone.tel}`} className="glass glass-hover flex items-center gap-3 p-5">
+                <Phone className="h-6 w-6 shrink-0 text-cyan-300" aria-hidden="true" />
+                <span><span className="block font-semibold text-white">Phone</span><span className="text-xs text-mist-400">{contactPhone.display}</span></span>
+              </a>
               <a href={profile.links.linkedin} target="_blank" rel="noopener noreferrer" className="glass glass-hover flex items-center gap-3 p-5">
                 <LinkedInIcon className="h-6 w-6 text-[#5B8CFF]" />
                 <span><span className="block font-semibold text-white">LinkedIn</span><span className="text-xs text-mist-400">Message me directly</span></span>
@@ -50,7 +58,7 @@ export default function ContactPage() {
             </Reveal>
           </div>
           <Reveal delay={0.1}>
-            <ContactForm email={contactEmail} linkedin={profile.links.linkedin} />
+            <ContactForm email={contactEmail} phone={contactPhone} linkedin={profile.links.linkedin} />
           </Reveal>
         </div>
       </section>

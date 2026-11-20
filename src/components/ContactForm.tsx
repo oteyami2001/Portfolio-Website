@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Send } from "lucide-react";
+import { Mail, Phone, Send } from "lucide-react";
 import { LinkedInIcon } from "./BrandIcons";
 
 /**
@@ -9,7 +9,7 @@ import { LinkedInIcon } from "./BrandIcons";
  * in the visitor's mail app (no data is stored on the server). Otherwise it points
  * visitors to LinkedIn rather than pretending to send a message.
  */
-export function ContactForm({ email, linkedin }: { email: string; linkedin: string }) {
+export function ContactForm({ email, phone, linkedin }: { email: string; phone: { display: string; tel: string }; linkedin: string }) {
   const [topic, setTopic] = useState("Employment opportunity");
   const [sent, setSent] = useState(false);
 
@@ -42,6 +42,10 @@ export function ContactForm({ email, linkedin }: { email: string; linkedin: stri
   return (
     <form onSubmit={onSubmit} className="glass space-y-4 p-6 sm:p-8">
       <h2 className="font-display text-2xl font-semibold text-white">Send me a message</h2>
+      <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+        <a href={`mailto:${email}`} className="inline-flex items-center gap-2 text-cyan-300 hover:underline"><Mail className="h-4 w-4" aria-hidden="true" />{email}</a>
+        <a href={`tel:${phone.tel}`} className="inline-flex items-center gap-2 text-cyan-300 hover:underline"><Phone className="h-4 w-4" aria-hidden="true" />{phone.display}</a>
+      </div>
       <fieldset>
         <legend className="text-sm text-mist-300">I&apos;m reaching out about</legend>
         <div className="mt-2 flex flex-wrap gap-2">

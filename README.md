@@ -65,7 +65,7 @@ npm run typecheck && npm test && npm run build
 | Variable | Required | Purpose |
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical URL for metadata, sitemap and Open Graph (e.g. `https://www.yourdomain.com`) |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | Optional | Shows the contact form, which opens the visitor's email app. Without it, the Contact page points to LinkedIn. |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | Optional | Overrides the contact email (default set in `src/data/profile.ts`, along with the phone number). |
 | `ANTHROPIC_API_KEY` | Optional | Turns on AI answers in the portfolio assistant. Keep it server-side only; never prefix it with `NEXT_PUBLIC_`. |
 
 ## Deployment

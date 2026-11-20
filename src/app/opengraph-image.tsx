@@ -24,7 +24,7 @@ export default function OgImage() {
           <div style={{ fontSize: 36, marginTop: 20, color: "#B6C2D9" }}>Engineering secure, scalable and intelligent cloud infrastructure.</div>
         </div>
         <div style={{ display: "flex", gap: 16, fontSize: 24 }}>
-          {["AWS", "OCI", "Azure", "Terraform", "Oracle DB", "Security+"].map((t) => (
+          {["AWS", "OCI", "Azure", "Terraform", "Oracle DB", "DevOps"].map((t) => (
             <div key={t} style={{ padding: "8px 20px", borderRadius: 999, border: "1px solid rgba(127,227,245,0.35)", background: "rgba(53,200,232,0.08)" }}>{t}</div>
           ))}
         </div>

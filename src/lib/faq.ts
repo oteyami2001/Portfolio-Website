@@ -1,4 +1,4 @@
-import { certifications, education, experience, profile, skillGroups } from "@/data/profile";
+import { certifications, contactEmail, contactPhone, education, experience, profile, skillGroups } from "@/data/profile";
 import { projects } from "@/data/projects";
 
 /**
@@ -11,7 +11,7 @@ const list = (xs: readonly string[]) => xs.join(", ");
 
 const ENTRIES: Entry[] = [
   {
-    keys: ["certif", "cert", "credential", "security+", "comptia", "associate", "exam"],
+    keys: ["certif", "cert", "credential", "associate", "exam"],
     answer: () => `Thierry holds ${certifications.length} professional certifications: ${list(certifications.map((c) => c.name))}. See the Certifications page for details.`,
   },
   {
@@ -31,7 +31,7 @@ const ENTRIES: Entry[] = [
   },
   {
     keys: ["dba", "database", "oracle", "rac", "data guard", "goldengate", "rman", "sql server", "postgres", "mysql"],
-    answer: () => `Thierry worked as a freelance Oracle Database Administrator with BRONTECH SOLUTIONS (2020–2022), handling installation, patching, upgrades, RMAN and Data Pump recovery, RAC, ASM, Data Guard and performance tuning. His database skills include ${list(skillGroups.find((s) => s.id === "database")!.skills)}. He is also an Oracle Certified Associate (OCA).`,
+    answer: () => `Thierry worked as a freelance Oracle Database Administrator with BRONTECH SOLUTIONS (2020–2022), handling installation, patching, upgrades, RMAN and Data Pump recovery, RAC, ASM, Data Guard and performance tuning. His database skills include ${list(skillGroups.find((s) => s.id === "database")!.skills)}.`,
   },
   {
     keys: ["devops", "terraform", "automation", "pipeline", "kubernetes", "docker", "ansible", "jenkins", "iac"],
@@ -39,7 +39,7 @@ const ENTRIES: Entry[] = [
   },
   {
     keys: ["security", "iam", "governance", "compliance", "mfa", "nist", "rmf", "stig"],
-    answer: () => `Security is built into everything Thierry designs: ${list(skillGroups.find((s) => s.id === "security")!.skills)}. He holds CompTIA Security+ and applies least privilege, MFA, KMS encryption, CloudTrail auditing and GuardDuty in his AWS work.`,
+    answer: () => `Security is built into everything Thierry designs: ${list(skillGroups.find((s) => s.id === "security")!.skills)}. He applies least privilege, MFA, KMS encryption, CloudTrail auditing and GuardDuty in his AWS work.`,
   },
   {
     keys: ["project", "portfolio", "ballot", "migration", "github", "repo", "wordpress", "fargate", "parallelcluster", "hpc"],
@@ -58,7 +58,7 @@ const ENTRIES: Entry[] = [
   },
   {
     keys: ["education", "degree", "umgc", "master", "bachelor", "school", "university", "study"],
-    answer: () => `Education: ${education.map((e) => `${e.degree}, ${e.school} (${e.status})`).join("; ")}.`,
+    answer: () => `Education: ${education.map((e) => `${e.degree}, ${e.school} (${e.status})`).join("; ")} — ${profile.yearsExperience} years of professional experience in total.`,
   },
   {
     keys: ["experience", "career", "job", "work", "role", "brontech", "upwork", "freelance", "history", "years"],
@@ -66,7 +66,7 @@ const ENTRIES: Entry[] = [
   },
   {
     keys: ["contact", "hire", "email", "reach", "available", "interview", "linkedin"],
-    answer: () => `Thierry is open to ${list(profile.targetRoles)} roles and consulting. The best way to reach him is the Contact page or LinkedIn: ${profile.links.linkedin}.`,
+    answer: () => `Thierry is open to ${list(profile.targetRoles)} roles and consulting. Reach him by email at ${contactEmail}, by phone at ${contactPhone.display}, via the Contact page, or on LinkedIn: ${profile.links.linkedin}.`,
   },
   {
     keys: ["location", "where", "based", "relocat", "remote", "citizen", "clearance"],

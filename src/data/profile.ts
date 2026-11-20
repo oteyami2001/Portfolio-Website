@@ -5,7 +5,8 @@
  */
 
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.example.com").replace(/\/$/, "");
-export const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "";
+export const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "oteyami2001@gmail.com";
+export const contactPhone = { display: "718-593-6007", tel: "+17185936007" };
 
 export const profile = {
   name: "Thierry Arcadius Oteyami",
@@ -19,7 +20,7 @@ export const profile = {
   company: "Cloud Tech Inter LLC",
   photo: "/images/thierry-oteyami.jpg",
   summary:
-    "Cloud Engineer and Software Developer experienced in designing, deploying, automating, securing, and supporting cloud solutions across AWS, OCI, and Microsoft Azure. Skilled in cloud architecture, migration, Infrastructure as Code, Terraform, CloudFormation, CI/CD, Docker, Kubernetes, networking, IAM, monitoring, databases, and disaster recovery. Strong software development and Oracle database background with Python, Java, SQL, Oracle, MySQL, and PostgreSQL. AWS Certified Solutions Architect – Associate; OCI, Oracle, and CompTIA Security+ certifications; experience with RMF, NIST SP 800-53, DISA STIG, encryption, MFA, and least-privilege security.",
+    "Cloud Engineer and Software Developer experienced in designing, deploying, automating, securing, and supporting cloud solutions across AWS, OCI, and Microsoft Azure. Skilled in cloud architecture, migration, Infrastructure as Code, Terraform, CloudFormation, CI/CD, Docker, Kubernetes, networking, IAM, monitoring, databases, and disaster recovery. Strong software development and Oracle database background with Python, Java, SQL, Oracle, MySQL, and PostgreSQL. AWS Certified Solutions Architect – Associate and Oracle Cloud Infrastructure certified; experience with RMF, NIST SP 800-53, DISA STIG, encryption, MFA, and least-privilege security.",
   intro:
     "I sit where infrastructure meets data. A background in Oracle database administration and software development taught me what production really demands — and that discipline now shapes how I design, automate and secure cloud platforms on AWS, OCI and Azure.",
   targetRoles: [
@@ -34,12 +35,13 @@ export const profile = {
     github: "https://github.com/oteyami2001",
   },
   resumePdf: "/resume/Thierry-Oteyami-Resume.pdf",
+  yearsExperience: 6,
 } as const;
 
 export const stats = [
+  { value: "6", label: "Years of professional experience" },
   { value: "3", label: "Cloud platforms: AWS, OCI and Azure" },
-  { value: "5", label: "Professional certifications" },
-  { value: "6", label: "Cloud engineering projects" },
+  { value: "3", label: "Cloud certifications: AWS and OCI" },
   { value: "2025", label: "Founded Cloud Tech Inter LLC" },
 ] as const;
 
@@ -133,7 +135,7 @@ export const education: Education[] = [
 export type Certification = {
   id: string;
   name: string;
-  issuer: "Amazon Web Services" | "Oracle" | "CompTIA";
+  issuer: "Amazon Web Services" | "Oracle";
   short: string;
   level: string;
   focus: string[];
@@ -164,22 +166,6 @@ export const certifications: Certification[] = [
     short: "OCI Foundations",
     level: "Foundations",
     focus: ["Core OCI services", "Cloud concepts", "Pricing & governance"],
-  },
-  {
-    id: "oca",
-    name: "Oracle Certified Associate (OCA)",
-    issuer: "Oracle",
-    short: "Oracle OCA",
-    level: "Associate",
-    focus: ["Oracle Database administration", "SQL", "Backup & recovery"],
-  },
-  {
-    id: "secplus",
-    name: "CompTIA Security+",
-    issuer: "CompTIA",
-    short: "Security+",
-    level: "Professional",
-    focus: ["Threats & vulnerabilities", "Identity & access", "Network security", "Risk management"],
   },
 ];
 
@@ -247,7 +233,7 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "security",
     title: "Security & Governance",
-    blurb: "Security+ certified. Least privilege, encryption and compliance frameworks.",
+    blurb: "Least privilege, encryption and compliance frameworks — RMF, NIST SP 800-53 and DISA STIG.",
     accent: "#4ADE9B",
     skills: [
       "IAM", "MFA", "RBAC", "Least Privilege", "Encryption", "TDE", "RMF", "NIST SP 800-53", "DISA STIG",

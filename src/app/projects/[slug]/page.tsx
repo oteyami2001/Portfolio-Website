@@ -83,7 +83,18 @@ export default async function ProjectPage({ params }: Params) {
 
       {project.troubleshooting ? (
         <section className="container-site mt-20" aria-labelledby="ts-title">
-          <SectionHeading eyebrow="Engineering challenges" id="ts-title" title="What broke — and how I fixed it." />
+          <SectionHeading eyebrow="Engineering challenges" id="ts-title" title={project.troubleshooting.some((t) => t.fix) ? "What broke — and how I fixed it." : "Issues I troubleshot."} />
+          {!project.troubleshooting.some((t) => t.fix) ? (
+            <Reveal className="mt-10">
+              <ul className="flex flex-wrap gap-3">
+                {project.troubleshooting.map((t) => (
+                  <li key={t.issue} className="glass flex items-center gap-2 px-4 py-3 text-sm text-white">
+                    <Wrench className="h-4 w-4 text-amber-400" aria-hidden="true" /> {t.issue}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          ) : (
           <Reveal className="mt-10 overflow-hidden rounded-2xl border border-cyan-300/10">
             <div className="overflow-x-auto">
               <table className="w-full min-w-[640px] text-left text-sm">
@@ -102,6 +113,7 @@ export default async function ProjectPage({ params }: Params) {
               </table>
             </div>
           </Reveal>
+          )}
         </section>
       ) : null}
 

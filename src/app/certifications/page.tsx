@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Certifications",
-  description: "AWS Certified Solutions Architect – Associate, OCI Architect Associate, OCI Foundations, Oracle Certified Associate and CompTIA Security+, plus UMGC degrees.",
+  description: "AWS Certified Solutions Architect – Associate, OCI Architect Associate and OCI Foundations, plus UMGC and CUNY degrees.",
   path: "/certifications",
 });
 
@@ -18,8 +18,8 @@ export default function CertificationsPage() {
     <>
       <PageHeader
         eyebrow="Certifications & education"
-        title={<>Credentials across <span className="text-gradient">cloud, data and security</span>.</>}
-        lead="Industry certifications from Amazon Web Services, Oracle and CompTIA, backed by degrees in software development, security and cloud computing systems."
+        title={<>Certified on <span className="text-gradient">AWS and Oracle Cloud</span>.</>}
+        lead="Cloud certifications from Amazon Web Services and Oracle, backed by degrees in software development, security and cloud computing systems."
       />
       <section className="container-site" aria-label="Certifications">
         <CertGrid detailed />

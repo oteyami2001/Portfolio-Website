@@ -5,8 +5,8 @@ import { answerFromFaq } from "@/lib/faq";
 import { buildKnowledge } from "@/lib/knowledge";
 
 describe("portfolio content", () => {
-  it("lists the five certifications", () => {
-    expect(certifications.map((c) => c.id)).toEqual(["aws-saa", "oci-arch", "oci-found", "oca", "secplus"]);
+  it("lists the three certifications", () => {
+    expect(certifications.map((c) => c.id)).toEqual(["aws-saa", "oci-arch", "oci-found"]);
   });
 
   it("has unique ids and slugs", () => {
@@ -70,5 +70,20 @@ describe("experience from verified resume", () => {
   it("does not mention removed employers anywhere in the assistant knowledge", () => {
     const k = buildKnowledge();
     for (const name of ["Synacore", "MOOV", "CooperVision", "Westsides"]) expect(k).not.toContain(name);
+  });
+});
+
+describe("resume-aligned details", () => {
+  it("states six years of experience and publishes contact details", async () => {
+    const { contactEmail, contactPhone } = await import("@/data/profile");
+    expect(profile.yearsExperience).toBe(6);
+    expect(contactEmail).toBe("oteyami2001@gmail.com");
+    expect(contactPhone.display).toBe("718-593-6007");
+  });
+
+  it("has no unsupported fixes on resume-only projects", () => {
+    for (const slug of ["wordpress-ecs-fargate", "aws-parallelcluster-hpc"]) {
+      expect(getProject(slug)?.troubleshooting?.every((t) => !t.fix)).toBe(true);
+    }
   });
 });
