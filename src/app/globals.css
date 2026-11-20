@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #050a14;
+  --bg-2: #0b1220;
+  --surface: rgba(19, 33, 58, 0.55);
+  --line: rgba(127, 227, 245, 0.12);
+  --line-strong: rgba(127, 227, 245, 0.28);
+  --text: #e8eef8;
+  --muted: #a3b1cc;
+  --cyan: #35c8e8;
+  --blue: #2f6bff;
+  --amber: #f3b65d;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--text);
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply font-sans antialiased;
+    background: var(--bg);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: rgba(53, 200, 232, 0.35);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-cyan-300;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply inline-block h-px w-6 bg-cyan-400/70;
+  }
+  .h-section {
+    @apply font-display text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl;
+  }
+  .lead {
+    @apply text-base leading-relaxed text-mist-300 sm:text-lg;
+  }
+  .glass {
+    background: linear-gradient(180deg, rgba(19, 33, 58, 0.72), rgba(11, 18, 32, 0.6));
+    border: 1px solid var(--line);
+    @apply rounded-2xl backdrop-blur-md;
+  }
+  .glass-hover {
+    @apply transition duration-300;
+  }
+  .glass-hover:hover {
+    border-color: var(--line-strong);
+    box-shadow: 0 0 0 1px rgba(53, 200, 232, 0.08), 0 20px 60px -30px rgba(53, 200, 232, 0.45);
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full border border-cyan-300/15 bg-cyan-400/[0.06] px-3 py-1 font-mono text-xs text-mist-100;
+  }
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition duration-200;
+  }
+  .btn-primary {
+    @apply btn text-ink-950;
+    background: linear-gradient(120deg, #7fe3f5, #35c8e8 45%, #5b8cff);
+    box-shadow: 0 10px 30px -10px rgba(53, 200, 232, 0.6);
+  }
+  .btn-primary:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+  }
+  .btn-ghost {
+    @apply btn border border-mist-300/25 text-mist-100 hover:border-cyan-300/60 hover:bg-cyan-400/[0.06] hover:text-white;
+  }
+  .text-gradient {
+    background: linear-gradient(100deg, #ffffff 10%, #7fe3f5 45%, #5b8cff 85%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(127, 227, 245, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(127, 227, 245, 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+  .aurora {
+    background:
+      radial-gradient(40rem 30rem at 15% 10%, rgba(47, 107, 255, 0.18), transparent 60%),
+      radial-gradient(36rem 26rem at 85% 20%, rgba(53, 200, 232, 0.14), transparent 60%),
+      radial-gradient(30rem 24rem at 50% 100%, rgba(47, 107, 255, 0.1), transparent 60%);
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+.flow-line {
+  stroke-dasharray: 6 8;
+  animation: dash 1.6s linear infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+.pulse-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  html, body { background: #fff !important; color: #0b1220 !important; }
+}
