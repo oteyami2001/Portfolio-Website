@@ -13,14 +13,15 @@ export const profile = {
   initials: "TO",
   title: "Cloud Engineer · Cloud Solutions Architect · Oracle DBA",
   headline: "Engineering Secure, Scalable, and Intelligent Cloud Infrastructure.",
-  tagline: "Cloud Engineer | AWS • Azure • OCI | Oracle DBA | DevOps & Automation",
-  location: "Maryland, USA",
+  tagline: "Cloud Engineer | AWS | OCI | Azure",
+  location: "Silver Spring, Maryland",
+  citizenship: "U.S. Citizen",
   company: "Cloud Tech Inter LLC",
   photo: "/images/thierry-oteyami.jpg",
   summary:
-    "Cloud engineer and Oracle database administrator with more than 13 years of Oracle database experience and over four years of Oracle Cloud Infrastructure engineering, plus hands-on work across Amazon Web Services and Microsoft Azure. I design secure, scalable cloud infrastructure, migrate enterprise workloads, run mission-critical databases, build high-availability and disaster-recovery solutions, and automate infrastructure so it can be rebuilt from code.",
+    "Cloud Engineer and Software Developer experienced in designing, deploying, automating, securing, and supporting cloud solutions across AWS, OCI, and Microsoft Azure. Skilled in cloud architecture, migration, Infrastructure as Code, Terraform, CloudFormation, CI/CD, Docker, Kubernetes, networking, IAM, monitoring, databases, and disaster recovery. Strong software development and Oracle database background with Python, Java, SQL, Oracle, MySQL, and PostgreSQL. AWS Certified Solutions Architect – Associate; OCI, Oracle, and CompTIA Security+ certifications; experience with RMF, NIST SP 800-53, DISA STIG, encryption, MFA, and least-privilege security.",
   intro:
-    "I sit where infrastructure meets data. Years of keeping Oracle databases fast, recoverable and secure taught me what production really demands — and that discipline now shapes how I design cloud platforms on AWS, OCI and Azure.",
+    "I sit where infrastructure meets data. A background in Oracle database administration and software development taught me what production really demands — and that discipline now shapes how I design, automate and secure cloud platforms on AWS, OCI and Azure.",
   targetRoles: [
     "AWS Cloud Engineer",
     "OCI Cloud Engineer",
@@ -36,10 +37,10 @@ export const profile = {
 } as const;
 
 export const stats = [
-  { value: "13+", label: "Years of Oracle database administration" },
-  { value: "4+", label: "Years engineering on Oracle Cloud Infrastructure" },
   { value: "3", label: "Cloud platforms: AWS, OCI and Azure" },
   { value: "5", label: "Professional certifications" },
+  { value: "6", label: "Cloud engineering projects" },
+  { value: "2025", label: "Founded Cloud Tech Inter LLC" },
 ] as const;
 
 export type Role = {
@@ -47,7 +48,7 @@ export type Role = {
   company: string;
   role: string;
   period: string;
-  type: "Founder" | "Full-time" | "Freelance" | "Earlier career";
+  type: "Founder" | "Freelance";
   summary: string;
   highlights: string[];
   stack: string[];
@@ -57,104 +58,51 @@ export const experience: Role[] = [
   {
     id: "cloud-tech-inter",
     company: "Cloud Tech Inter LLC",
-    role: "Founder & Cloud Engineer",
+    role: "Founder & Self-Employed Cloud Engineer",
     period: "2025 – Present",
     type: "Founder",
     summary:
-      "Founded a cloud engineering practice that designs and implements cloud solutions for small businesses on AWS, OCI and Azure.",
+      "Design and implement secure, scalable cloud solutions for small businesses and professional-service clients using AWS, Oracle Cloud Infrastructure (OCI) and Microsoft Azure.",
     highlights: [
-      "Design multi-account AWS foundations with AWS Organizations, organizational units and IAM Identity Center permission sets.",
-      "Plan and deliver workload migrations, landing zones and secure network topologies across AWS, OCI and Azure.",
-      "Codify infrastructure with Terraform and CloudFormation and automate delivery with GitHub Actions.",
-      "Apply security-first governance: least-privilege access, MFA, encryption, centralized logging and auditing.",
+      "Build AWS environments using VPCs, public/private subnets, EC2, S3, RDS, IAM, Route 53, CloudWatch, Application Load Balancers, Auto Scaling and related services.",
+      "Develop Infrastructure-as-Code solutions with Terraform and AWS CloudFormation to standardize deployments and reduce manual configuration.",
+      "Configure cloud identity and access management using least-privilege permissions, MFA, groups, roles and permission sets to strengthen account security.",
+      "Plan and execute cloud migration solutions for applications, databases, websites and business data, including backup, validation, cutover, rollback and post-migration monitoring.",
     ],
-    stack: ["AWS Organizations", "IAM Identity Center", "OCI", "Azure", "Terraform", "CloudFormation", "GitHub Actions"],
+    stack: ["AWS", "OCI", "Azure", "Terraform", "CloudFormation", "AWS Organizations", "IAM Identity Center", "ECS Fargate", "DMS", "MGN"],
   },
   {
     id: "freelance-dev",
-    company: "Freelance",
+    company: "Upwork / Freelance",
     role: "Software Developer",
-    period: "2019 – 2025",
+    period: "2022 – 2025",
     type: "Freelance",
     summary:
-      "Built and maintained software and scripting solutions for clients, combining application development with database and infrastructure expertise.",
+      "Independent software and database development for client projects, from backend logic to automation and cloud deployment.",
     highlights: [
-      "Developed applications and automation scripts in Python, Bash and PowerShell.",
-      "Designed relational data models and database-backed features on Oracle, SQL Server, PostgreSQL and MySQL.",
-      "Used Git-based workflows and CI practices to ship reliable, maintainable code.",
+      "Designed, developed, tested and maintained software and database solutions using Java, Python, C#, C++, SQL and web technologies.",
+      "Built data-driven applications and backend components, stored procedures, application logic and integrations.",
+      "Developed automation scripts in Python, Bash and PowerShell to streamline repetitive technical and administrative tasks.",
+      "Worked with Git-based source control and structured development practices for versioning, testing, troubleshooting and deployment.",
+      "Deployed and supported applications in Linux and cloud-based environments, troubleshooting application, database, networking and configuration issues.",
     ],
-    stack: ["Python", "Bash", "PowerShell", "SQL", "Git", "Linux"],
-  },
-  {
-    id: "synacore",
-    company: "Synacore",
-    role: "Oracle Cloud Engineer / Solutions Architect",
-    period: "2019 – 2023",
-    type: "Full-time",
-    summary:
-      "Designed and operated Oracle Cloud Infrastructure environments and supported the migration of enterprise Oracle workloads to OCI.",
-    highlights: [
-      "Architected OCI tenancies with VCNs, subnets, security lists, DRG and site-to-site VPN connectivity.",
-      "Provisioned compute, load balancing, block volumes and object storage for database and application tiers.",
-      "Implemented IAM policies, compartments and KMS-based encryption for secure, governed access.",
-      "Migrated Oracle databases to OCI with RMAN and Data Guard, including high-availability and disaster-recovery design.",
-    ],
-    stack: ["OCI VCN", "DRG", "VPN", "Compute", "Load Balancer", "Object Storage", "KMS", "Oracle DB", "Data Guard", "RMAN"],
+    stack: ["Java", "Python", "C#", "C++", "SQL", "Bash", "PowerShell", "Git", "Linux"],
   },
   {
     id: "brontech",
     company: "BRONTECH SOLUTIONS",
-    role: "Freelance Oracle & SQL Server Database Administrator",
+    role: "Freelance Oracle Database Administrator",
     period: "2020 – 2022",
     type: "Freelance",
     summary:
-      "Administered Oracle and Microsoft SQL Server databases for client environments, focused on availability, performance and recoverability.",
+      "Freelance Oracle DBA focused on availability, performance, recoverability and security of client database environments.",
     highlights: [
-      "Installed, patched and upgraded Oracle and SQL Server database environments.",
-      "Built and tested backup and recovery strategies with RMAN and native SQL Server tooling.",
-      "Diagnosed and tuned performance using AWR, execution plans and index strategies.",
-      "Managed users, roles and auditing to meet least-privilege and compliance needs.",
+      "Administered Oracle database environments, including installation, configuration, patching, upgrades, performance monitoring and production support.",
+      "Managed backup, recovery, cloning, refresh and migration activities using RMAN and Data Pump; supported RAC, ASM, Data Guard and disaster-recovery testing.",
+      "Tuned database performance using Oracle Enterprise Manager, AWR, ASH, ADDM, execution plans and SQL tuning; resolved connectivity, storage, locking and performance issues.",
+      "Strengthened database security through least-privilege access, auditing, patching, encryption and role administration, while automating recurring DBA tasks with SQL, PL/SQL and Bash.",
     ],
-    stack: ["Oracle Database", "SQL Server", "RMAN", "AWR", "Performance Tuning", "Backup & Recovery"],
-  },
-  {
-    id: "coopervision",
-    company: "CooperVision",
-    role: "Database Engineer",
-    period: "Earlier career",
-    type: "Earlier career",
-    summary: "Database engineering supporting enterprise Oracle environments.",
-    highlights: [
-      "Administered Oracle databases including RAC and ASM configurations.",
-      "Supported high availability, backup and recovery, and performance operations.",
-    ],
-    stack: ["Oracle RAC", "ASM", "RMAN", "Linux"],
-  },
-  {
-    id: "westsides",
-    company: "Westsides Donut Group",
-    role: "Database Engineer",
-    period: "Earlier career",
-    type: "Earlier career",
-    summary: "Database engineering and administration for business systems.",
-    highlights: [
-      "Maintained database availability, backups and routine operational tasks.",
-      "Supported reporting and data integrity for business applications.",
-    ],
-    stack: ["Oracle Database", "SQL", "Backup & Recovery"],
-  },
-  {
-    id: "moov",
-    company: "MOOV Telecom",
-    role: "Database Engineer",
-    period: "Earlier career",
-    type: "Earlier career",
-    summary: "Began a career in Oracle database engineering in the telecommunications sector.",
-    highlights: [
-      "Administered Oracle databases supporting telecom operations.",
-      "Built a foundation in SQL, PL/SQL, Linux and database operations.",
-    ],
-    stack: ["Oracle Database", "PL/SQL", "Linux"],
+    stack: ["Oracle Database", "RMAN", "Data Pump", "RAC", "ASM", "Data Guard", "OEM", "AWR / ASH / ADDM", "PL/SQL"],
   },
 ];
 
@@ -175,8 +123,8 @@ export const education: Education[] = [
     detail: "Secure software engineering, application security, databases and systems programming.",
   },
   {
-    degree: "Computer Information Systems",
-    school: "Earlier education",
+    degree: "Associate Degree, Computer Information Systems",
+    school: "Kingsborough Community College (CUNY, New York)",
     status: "Completed",
     detail: "Foundations in information systems, programming and database design.",
   },
@@ -244,16 +192,20 @@ export const skillGroups: SkillGroup[] = [
     blurb: "Landing zones, migrations and resilient application platforms on Amazon Web Services.",
     accent: "#F3B65D",
     skills: [
-      "EC2", "VPC", "S3", "IAM", "RDS / Aurora", "ECS", "Fargate", "Application Load Balancer", "Auto Scaling",
-      "CloudWatch", "CloudTrail", "Route 53", "AWS Organizations", "Systems Manager", "DMS", "MGN", "CloudFormation",
+      "EC2", "S3", "VPC", "IAM", "RDS / Aurora", "Lambda", "ECS", "Fargate", "Application Load Balancer", "Auto Scaling",
+      "CloudWatch", "CloudTrail", "Route 53", "AWS Organizations", "IAM Identity Center", "Systems Manager", "DMS", "MGN",
+      "CloudFormation", "ParallelCluster",
     ],
   },
   {
     id: "oci",
     title: "Oracle Cloud Infrastructure",
-    blurb: "Four-plus years designing OCI networks, compute and storage for Oracle workloads.",
+    blurb: "OCI networking, compute, storage and Oracle database services.",
     accent: "#FF6B5B",
-    skills: ["VCN", "Compute", "Load Balancing", "IAM", "DRG", "VPN", "Object Storage", "Block Volumes", "KMS", "Cloud Migrations"],
+    skills: [
+      "Compute", "Storage", "VCN", "IAM", "Load Balancer", "DRG", "VPN", "Object Storage", "Block Volumes", "KMS",
+      "DBCS", "Exadata", "Autonomous Database", "GoldenGate",
+    ],
   },
   {
     id: "azure",
@@ -261,38 +213,45 @@ export const skillGroups: SkillGroup[] = [
     blurb: "IaaS and PaaS deployments, golden images and infrastructure as code on Azure.",
     accent: "#5B8CFF",
     skills: [
-      "Azure Virtual Machines", "VM Scale Sets", "App Service", "Azure DevOps", "Azure CLI", "ARM Templates",
-      "Networking", "Azure Monitor",
+      "Virtual Machines", "VNets", "Storage", "App Service", "VM Scale Sets", "Load Balancer", "ARM Templates",
+      "Azure CLI", "Azure Monitor", "Azure DevOps",
     ],
   },
   {
     id: "devops",
-    title: "DevOps & Automation",
-    blurb: "Everything as code — repeatable, reviewable, and continuously validated.",
+    title: "DevOps, IaC & Containers",
+    blurb: "Everything as code — repeatable, reviewable and continuously validated.",
     accent: "#35C8E8",
     skills: [
-      "Terraform", "CloudFormation", "GitHub Actions", "Jenkins", "Ansible", "Docker", "Kubernetes", "Python",
-      "Bash", "PowerShell", "Linux", "Git",
+      "Terraform", "CloudFormation", "ARM", "GitHub Actions", "Jenkins", "Ansible", "Git / GitOps", "CI/CD",
+      "Docker", "Kubernetes", "Amazon ECS", "AWS Fargate", "Linux",
     ],
   },
   {
     id: "database",
     title: "Database Administration",
-    blurb: "Thirteen-plus years keeping mission-critical data fast, available and recoverable.",
+    blurb: "Oracle 12c–19c administration plus managed relational and NoSQL databases.",
     accent: "#9B8CFF",
     skills: [
-      "Oracle Database", "RAC", "ASM", "Data Guard", "GoldenGate", "RMAN", "SQL Server", "PostgreSQL", "MySQL",
-      "Performance Tuning", "Backup & Recovery", "High Availability",
+      "Oracle 12c–19c", "RAC", "ASM", "Data Guard", "GoldenGate", "RMAN", "Data Pump", "OEM · AWR · ASH · ADDM",
+      "RDS", "Aurora", "MySQL", "PostgreSQL", "SQL Server", "MongoDB", "DynamoDB", "Performance Tuning", "Backup & Recovery",
     ],
+  },
+  {
+    id: "programming",
+    title: "Software Development",
+    blurb: "Applications, backend components and automation scripts.",
+    accent: "#7FE3F5",
+    skills: ["Python", "Java", "C#", "C++", "SQL", "PL/SQL", "Bash", "PowerShell", "Git"],
   },
   {
     id: "security",
     title: "Security & Governance",
-    blurb: "Security+ certified. Least privilege, encryption and auditability by default.",
+    blurb: "Security+ certified. Least privilege, encryption and compliance frameworks.",
     accent: "#4ADE9B",
     skills: [
-      "IAM", "MFA", "Least-Privilege Access", "Active Directory", "Network Security", "Encryption", "Auditing",
-      "Disaster Recovery", "Cloud Security Best Practices",
+      "IAM", "MFA", "RBAC", "Least Privilege", "Encryption", "TDE", "RMF", "NIST SP 800-53", "DISA STIG",
+      "Auditing", "Disaster Recovery", "Network Security",
     ],
   },
 ];
@@ -317,28 +276,28 @@ export const capabilities: Capability[] = [
     aws: ["VPC", "Route 53", "Site-to-Site VPN", "ALB", "NAT"],
     azure: ["Virtual Network", "Load Balancer", "NSG"],
     oci: ["VCN", "DRG", "VPN", "Load Balancing"],
-    tools: ["Subnetting", "Routing", "DNS"],
-    projects: ["ballotonline-aws-migration", "ballotonline-azure-orchestration"],
+    tools: ["Subnetting", "Routing", "DNS", "Security groups"],
+    projects: ["ballotonline-aws-migration", "wordpress-ecs-fargate", "ballotonline-azure-orchestration"],
   },
   {
     id: "compute",
     label: "Compute",
     summary: "Right-sized, scalable compute from VMs to containers.",
-    aws: ["EC2", "Auto Scaling", "ECS", "Fargate"],
+    aws: ["EC2", "Auto Scaling", "Lambda", "ECS", "Fargate", "ParallelCluster"],
     azure: ["Virtual Machines", "VM Scale Sets", "App Service"],
     oci: ["Compute", "Block Volumes"],
-    tools: ["Docker", "Kubernetes", "Linux"],
-    projects: ["ballotonline-aws-migration", "ballotonline-azure-orchestration"],
+    tools: ["Docker", "Kubernetes", "Linux", "Slurm"],
+    projects: ["wordpress-ecs-fargate", "aws-parallelcluster-hpc", "ballotonline-azure-orchestration"],
   },
   {
     id: "databases",
     label: "Databases",
     summary: "Highly available data tiers with tested recovery.",
-    aws: ["Aurora", "RDS", "DMS"],
+    aws: ["Aurora", "RDS", "DynamoDB", "DMS"],
     azure: ["Azure SQL (evaluated)"],
-    oci: ["Oracle DB on OCI", "Object Storage backups"],
-    tools: ["Oracle RAC", "Data Guard", "GoldenGate", "RMAN", "SQL Server", "PostgreSQL", "MySQL"],
-    projects: ["ballotonline-aws-migration"],
+    oci: ["DBCS", "Exadata", "Autonomous Database", "GoldenGate"],
+    tools: ["Oracle RAC", "Data Guard", "RMAN", "Data Pump", "SQL Server", "PostgreSQL", "MySQL", "MongoDB"],
+    projects: ["ballotonline-aws-migration", "wordpress-ecs-fargate"],
   },
   {
     id: "security",
@@ -347,7 +306,7 @@ export const capabilities: Capability[] = [
     aws: ["IAM", "IAM Identity Center", "KMS", "Secrets Manager", "GuardDuty", "CloudTrail"],
     azure: ["Entra ID / RBAC", "Managed Identity", "Trusted Launch"],
     oci: ["IAM Policies", "Compartments", "KMS Vault"],
-    tools: ["MFA", "Active Directory", "Security+ practices"],
+    tools: ["MFA", "RBAC", "RMF", "NIST SP 800-53", "DISA STIG", "TDE"],
     projects: ["ballotonline-aws-migration", "ballotonline-azure-orchestration", "cloud-tech-inter-foundation"],
   },
   {
@@ -368,6 +327,6 @@ export const capabilities: Capability[] = [
     azure: ["ARM Templates", "Azure CLI", "Azure DevOps"],
     oci: ["Terraform (OCI provider)"],
     tools: ["Terraform", "GitHub Actions", "Jenkins", "Ansible", "Python", "Bash", "PowerShell"],
-    projects: ["ballotonline-aws-migration", "ballotonline-azure-orchestration", "cloud-tech-inter-foundation"],
+    projects: ["wordpress-ecs-fargate", "ballotonline-aws-migration", "ballotonline-azure-orchestration"],
   },
 ];

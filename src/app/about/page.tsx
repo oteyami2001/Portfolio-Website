@@ -10,12 +10,12 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "About",
-  description: "About Thierry Oteyami — cloud engineer and Oracle DBA with 13+ years of database experience and 4+ years on Oracle Cloud Infrastructure, plus AWS and Azure.",
+  description: "About Thierry Oteyami — cloud engineer, software developer and Oracle DBA designing, automating and securing cloud solutions on AWS, OCI and Azure.",
   path: "/about",
 });
 
 const facts = [
-  { icon: MapPin, label: "Based in", value: profile.location },
+  { icon: MapPin, label: "Based in", value: `${profile.location} · ${profile.citizenship}` },
   { icon: Building2, label: "Company", value: `Founder, ${profile.company}` },
   { icon: GraduationCap, label: "Studying", value: "M.S. Cloud Computing Systems, UMGC" },
   { icon: Target, label: "Focus", value: "AWS · OCI · Azure · Oracle DB" },
@@ -51,12 +51,12 @@ export default function AboutPage() {
             </Reveal>
             <Reveal>
               <p>
-                My career started in Oracle database engineering — RAC clusters, ASM storage, Data Guard standbys and RMAN recovery plans for systems that could not go down. That background shapes how I approach the cloud: I design for failure, test the recovery path, and treat security and observability as requirements, not afterthoughts.
+                As a freelance Oracle DBA with BRONTECH SOLUTIONS I installed, patched, tuned and secured Oracle environments — RMAN and Data Pump recovery, RAC, ASM and Data Guard, and disaster-recovery testing. That background shapes how I approach the cloud: I design for failure, test the recovery path, and treat security and observability as requirements, not afterthoughts.
               </p>
             </Reveal>
             <Reveal>
               <p>
-                At Synacore I spent four years as an Oracle Cloud Engineer and Solutions Architect, building OCI networks, compute and storage and moving Oracle workloads into the cloud. Since then I have extended that practice across AWS and Azure, earned the AWS Solutions Architect – Associate certification, and founded <strong className="text-white">{profile.company}</strong> to help small businesses adopt the cloud securely.
+                As a freelance software developer I built data-driven applications, backend components and automation in Java, Python, C#, C++ and SQL. In 2025 I founded <strong className="text-white">{profile.company}</strong>, where I design and implement secure, scalable cloud solutions for small businesses and professional-service clients on AWS, OCI and Azure — with security grounded in least privilege, MFA, encryption and frameworks such as RMF, NIST SP 800-53 and DISA STIG.
               </p>
             </Reveal>
             <Reveal>

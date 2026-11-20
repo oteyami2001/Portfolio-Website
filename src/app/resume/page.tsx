@@ -35,7 +35,7 @@ export default function ResumePage() {
               <p className="mt-1 font-semibold text-[#0B3A8C]">{profile.tagline}</p>
             </div>
             <ul className="whitespace-nowrap text-xs text-slate-600 sm:text-right">
-              <li>{profile.location}</li>
+              <li>{profile.location} · {profile.citizenship}</li>
               <li>linkedin.com/in/thierry-oteyami-645335347</li>
               <li>github.com/oteyami2001</li>
             </ul>

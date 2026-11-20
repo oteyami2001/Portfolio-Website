@@ -23,7 +23,7 @@ const ENTRIES: Entry[] = [
   },
   {
     keys: ["oci", "oracle cloud"],
-    answer: () => `Thierry has over four years of Oracle Cloud Infrastructure engineering experience and holds the OCI Architect Associate and OCI Foundations certifications. He works with ${list(skillGroups.find((s) => s.id === "oci")!.skills)} — including his role as Oracle Cloud Engineer / Solutions Architect at Synacore (2019–2023).`,
+    answer: () => `Thierry holds the OCI Architect Associate and OCI Foundations certifications and designs OCI solutions at Cloud Tech Inter LLC. His OCI skills include ${list(skillGroups.find((s) => s.id === "oci")!.skills)}.`,
   },
   {
     keys: ["azure", "microsoft"],
@@ -31,20 +31,20 @@ const ENTRIES: Entry[] = [
   },
   {
     keys: ["dba", "database", "oracle", "rac", "data guard", "goldengate", "rman", "sql server", "postgres", "mysql"],
-    answer: () => `Thierry has more than 13 years of Oracle database administration experience. His database skills include ${list(skillGroups.find((s) => s.id === "database")!.skills)}. He is also an Oracle Certified Associate (OCA).`,
+    answer: () => `Thierry worked as a freelance Oracle Database Administrator with BRONTECH SOLUTIONS (2020–2022), handling installation, patching, upgrades, RMAN and Data Pump recovery, RAC, ASM, Data Guard and performance tuning. His database skills include ${list(skillGroups.find((s) => s.id === "database")!.skills)}. He is also an Oracle Certified Associate (OCA).`,
   },
   {
     keys: ["devops", "terraform", "automation", "pipeline", "kubernetes", "docker", "ansible", "jenkins", "iac"],
     answer: () => `For DevOps and automation, Thierry works with ${list(skillGroups.find((s) => s.id === "devops")!.skills)}. Both BallotOnline repositories run GitHub Actions validation on every change.`,
   },
   {
-    keys: ["security", "iam", "governance", "compliance", "mfa"],
+    keys: ["security", "iam", "governance", "compliance", "mfa", "nist", "rmf", "stig"],
     answer: () => `Security is built into everything Thierry designs: ${list(skillGroups.find((s) => s.id === "security")!.skills)}. He holds CompTIA Security+ and applies least privilege, MFA, KMS encryption, CloudTrail auditing and GuardDuty in his AWS work.`,
   },
   {
-    keys: ["project", "portfolio", "ballot", "migration", "github", "repo"],
+    keys: ["project", "portfolio", "ballot", "migration", "github", "repo", "wordpress", "fargate", "parallelcluster", "hpc"],
     answer: (q) => {
-      const hit = projects.filter((p) => (q.includes("azure") && p.platform === "Azure") || (q.includes("aws") && p.slug === "ballotonline-aws-migration") || (q.includes("cloud tech") && p.slug === "cloud-tech-inter-foundation"));
+      const hit = projects.filter((p) => (q.includes("azure") && p.platform === "Azure") || (q.includes("aws") && q.includes("ballot") && p.slug === "ballotonline-aws-migration") || (q.includes("cloud tech") && p.slug === "cloud-tech-inter-foundation") || ((q.includes("wordpress") || q.includes("fargate")) && p.slug === "wordpress-ecs-fargate") || ((q.includes("hpc") || q.includes("parallelcluster")) && p.slug === "aws-parallelcluster-hpc"));
       if (hit.length === 1) {
         const p = hit[0];
         return `${p.title}: ${p.summary} ${p.evidence ?? ""} Read the case study at /projects/${p.slug}${p.github ? ` or the code at ${p.github}` : ""}.`;
@@ -61,16 +61,16 @@ const ENTRIES: Entry[] = [
     answer: () => `Education: ${education.map((e) => `${e.degree}, ${e.school} (${e.status})`).join("; ")}.`,
   },
   {
-    keys: ["experience", "career", "job", "work", "role", "synacore", "brontech", "history", "years"],
-    answer: () => `Career highlights: ${experience.map((r) => `${r.role} at ${r.company} (${r.period})`).join("; ")}. In total: 13+ years of Oracle DBA work and 4+ years on OCI, plus AWS and Azure.`,
+    keys: ["experience", "career", "job", "work", "role", "brontech", "upwork", "freelance", "history", "years"],
+    answer: () => `Career highlights: ${experience.map((r) => `${r.role} at ${r.company} (${r.period})`).join("; ")}.`,
   },
   {
     keys: ["contact", "hire", "email", "reach", "available", "interview", "linkedin"],
     answer: () => `Thierry is open to ${list(profile.targetRoles)} roles and consulting. The best way to reach him is the Contact page or LinkedIn: ${profile.links.linkedin}.`,
   },
   {
-    keys: ["location", "where", "based", "relocat", "remote"],
-    answer: () => `Thierry is based in ${profile.location}. For questions about remote work or relocation, please reach out via the Contact page.`,
+    keys: ["location", "where", "based", "relocat", "remote", "citizen", "clearance"],
+    answer: () => `Thierry is based in ${profile.location} and is a ${profile.citizenship}. For questions about remote work or relocation, please reach out via the Contact page.`,
   },
 ];
 

@@ -5,7 +5,7 @@ import { projects } from "@/data/projects";
 export function buildKnowledge(): string {
   const lines: string[] = [];
   lines.push(`# ${profile.name}`);
-  lines.push(`Title: ${profile.title}. Location: ${profile.location}. Company: Founder & Cloud Engineer at ${profile.company}.`);
+  lines.push(`Title: ${profile.title}. Location: ${profile.location}. Citizenship: ${profile.citizenship}. Company: Founder & Cloud Engineer at ${profile.company}.`);
   lines.push(`Summary: ${profile.summary}`);
   lines.push(`Target roles: ${profile.targetRoles.join(", ")}. Also available for consulting.`);
   lines.push(`LinkedIn: ${profile.links.linkedin}. GitHub: ${profile.links.github}. Resume: available on the /resume page.`);

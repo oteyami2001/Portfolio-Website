@@ -47,6 +47,7 @@ describe("assistant grounding", () => {
 
   it("answers project questions with project names", () => {
     expect(answerFromFaq("Tell me about the BallotOnline migration project")).toContain("BallotOnline AWS Cloud Migration");
+    expect(answerFromFaq("Tell me about the WordPress Fargate project")).toContain("/projects/wordpress-ecs-fargate");
   });
 
   it("falls back to a helpful default", () => {
@@ -57,5 +58,17 @@ describe("assistant grounding", () => {
     const k = buildKnowledge();
     for (const p of projects) expect(k).toContain(p.title);
     for (const c of certifications) expect(k).toContain(c.name);
+  });
+});
+
+describe("experience from verified resume", () => {
+  it("contains only the resume roles", () => {
+    expect(experience.map((r) => r.company)).toEqual(["Cloud Tech Inter LLC", "Upwork / Freelance", "BRONTECH SOLUTIONS"]);
+    expect(experience.map((r) => r.period)).toEqual(["2025 – Present", "2022 – 2025", "2020 – 2022"]);
+  });
+
+  it("does not mention removed employers anywhere in the assistant knowledge", () => {
+    const k = buildKnowledge();
+    for (const name of ["Synacore", "MOOV", "CooperVision", "Westsides"]) expect(k).not.toContain(name);
   });
 });

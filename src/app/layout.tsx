@@ -7,7 +7,7 @@ import { Assistant } from "@/components/Assistant";
 import { certifications, profile, siteUrl } from "@/data/profile";
 
 const description =
-  "Thierry Arcadius Oteyami — Cloud Engineer, Cloud Solutions Architect and Oracle DBA in Maryland. 13+ years of Oracle database administration, 4+ years on OCI, and hands-on AWS and Azure. Founder of Cloud Tech Inter LLC.";
+  "Thierry Arcadius Oteyami — Cloud Engineer, Cloud Solutions Architect and Oracle DBA in Silver Spring, Maryland. Designs, migrates, automates and secures cloud solutions on AWS, OCI and Azure. Founder of Cloud Tech Inter LLC.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -42,9 +42,12 @@ const personJsonLd = {
   description,
   url: siteUrl,
   image: `${siteUrl}${profile.photo}`,
-  address: { "@type": "PostalAddress", addressRegion: "MD", addressCountry: "US" },
+  address: { "@type": "PostalAddress", addressLocality: "Silver Spring", addressRegion: "MD", addressCountry: "US" },
   worksFor: { "@type": "Organization", name: profile.company },
-  alumniOf: { "@type": "CollegeOrUniversity", name: "University of Maryland Global Campus" },
+  alumniOf: [
+    { "@type": "CollegeOrUniversity", name: "University of Maryland Global Campus" },
+    { "@type": "CollegeOrUniversity", name: "Kingsborough Community College" },
+  ],
   hasCredential: certifications.map((c) => ({ "@type": "EducationalOccupationalCredential", name: c.name, recognizedBy: { "@type": "Organization", name: c.issuer } })),
   knowsAbout: ["Amazon Web Services", "Oracle Cloud Infrastructure", "Microsoft Azure", "Oracle Database", "Terraform", "DevOps", "Cloud Security"],
   sameAs: [profile.links.linkedin, profile.links.github],

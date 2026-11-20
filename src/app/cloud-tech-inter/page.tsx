@@ -23,6 +23,13 @@ const SERVICES = [
   { icon: LockKeyhole, title: "Security & governance", body: "Least privilege, MFA, encryption, logging and audit readiness built into every environment." },
 ];
 
+const CLIENT_PROJECTS = [
+  { title: "AWS Multi-Account Business Environment", body: "AWS Organizations and IAM Identity Center with administrative, cloud engineering, database, security, developer, billing, read-only and intern access patterns; permission sets and MFA.", href: "/projects/cloud-tech-inter-foundation" },
+  { title: "CPA & Tax Professional Cloud Solution", body: "A secure AWS migration concept for independent accounting and tax practices: protected document storage, backups, controlled access, business continuity and scalable cloud services." },
+  { title: "WordPress on AWS ECS Fargate", body: "Terraform-based architecture with ECS Fargate, Application Load Balancer, RDS MariaDB, VPC networking, security groups, IAM roles and monitoring.", href: "/projects/wordpress-ecs-fargate" },
+  { title: "Cloud Migration Architecture", body: "Database and server migration approaches with AWS DMS and AWS Application Migration Service, including replication, validation, cutover, rollback, security and monitoring.", href: "/projects/ballotonline-aws-migration" },
+];
+
 const PROCESS = [
   { step: "Assess", body: "Inventory workloads, dependencies, risks and goals." },
   { step: "Design", body: "Target architecture, security model and migration strategy per workload." },
@@ -53,6 +60,21 @@ export default function CloudTechInterPage() {
               <s.icon className="h-7 w-7 text-cyan-300" aria-hidden="true" />
               <h3 className="mt-4 font-display text-lg font-semibold text-white">{s.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-mist-300">{s.body}</p>
+            </Reveal>
+          ))}
+        </ul>
+      </section>
+
+      <section className="container-site mt-28" aria-labelledby="work-title">
+        <SectionHeading eyebrow="Selected work" id="work-title" title="Cloud Tech Inter projects." />
+        <ul className="mt-10 grid gap-4 md:grid-cols-2">
+          {CLIENT_PROJECTS.map((p, i) => (
+            <Reveal as="li" key={p.title} delay={i * 0.05} className="glass glass-hover relative p-6">
+              <span className="font-mono text-xs text-cyan-300">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="mt-3 font-display text-lg font-semibold text-white">
+                {p.href ? <Link href={p.href} className="after:absolute after:inset-0 after:content-['']">{p.title}</Link> : p.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-mist-300">{p.body}</p>
             </Reveal>
           ))}
         </ul>

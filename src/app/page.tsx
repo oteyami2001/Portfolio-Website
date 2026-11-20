@@ -84,8 +84,8 @@ export default function HomePage() {
 
       {/* Timeline */}
       <section className="container-site mt-20" aria-labelledby="timeline-title">
-        <SectionHeading eyebrow="Career" id="timeline-title" title="A decade-plus of keeping systems running." />
-        <div className="mt-12"><Timeline roles={experience.slice(0, 4)} compact /></div>
+        <SectionHeading eyebrow="Career" id="timeline-title" title="Databases, software, and now the cloud." />
+        <div className="mt-12"><Timeline roles={experience} compact /></div>
         <Reveal className="mt-10"><Link href="/experience" className="btn-ghost">Full experience <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link></Reveal>
       </section>
 

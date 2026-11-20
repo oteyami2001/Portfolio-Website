@@ -6,9 +6,7 @@ import type { Role } from "@/data/profile";
 
 const TYPE_COLOR: Record<Role["type"], string> = {
   Founder: "#F3B65D",
-  "Full-time": "#35C8E8",
   Freelance: "#5B8CFF",
-  "Earlier career": "#9B8CFF",
 };
 
 /** Vertical career timeline with a scroll-linked progress rail. No scroll-jacking. */

@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Experience",
-  description: "Career timeline: Founder & Cloud Engineer at Cloud Tech Inter LLC, Oracle Cloud Engineer / Solutions Architect at Synacore, freelance DBA and software development, and earlier database engineering roles.",
+  description: "Career timeline: Founder & Cloud Engineer at Cloud Tech Inter LLC, freelance software developer, and freelance Oracle Database Administrator at BRONTECH SOLUTIONS.",
   path: "/experience",
 });
 
@@ -15,8 +15,8 @@ export default function ExperiencePage() {
     <>
       <PageHeader
         eyebrow="Experience"
-        title={<>Thirteen years of production. <span className="text-gradient">Now in the cloud.</span></>}
-        lead="From Oracle database engineering in telecom and enterprise environments to architecting Oracle Cloud Infrastructure and founding a cloud consultancy."
+        title={<>From databases and code <span className="text-gradient">to the cloud</span>.</>}
+        lead="Oracle database administration, software development and, since 2025, cloud engineering for small businesses on AWS, OCI and Azure."
       />
       <section className="container-site" aria-label="Career timeline">
         <Timeline roles={experience} />
