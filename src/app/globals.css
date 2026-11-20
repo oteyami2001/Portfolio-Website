@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --bg: #050a14;
+  --bg: #03070f;
   --bg-2: #0b1220;
   --surface: rgba(19, 33, 58, 0.55);
   --line: rgba(127, 227, 245, 0.12);
@@ -40,7 +40,18 @@
   }
   h1, h2, h3, h4 {
     @apply font-display;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.005em;
+  }
+  body::after {
+    /* subtle animated film grain */
+    content: "";
+    position: fixed;
+    inset: -50%;
+    z-index: 90;
+    pointer-events: none;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grain 1.2s steps(6) infinite;
   }
 }
 
@@ -56,7 +67,26 @@
     @apply inline-block h-px w-6 bg-cyan-400/70;
   }
   .h-section {
-    @apply font-display text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl;
+    @apply font-display text-[2.6rem] font-semibold uppercase leading-[0.95] text-white sm:text-6xl lg:text-7xl;
+  }
+  .h-cine {
+    @apply font-display font-semibold uppercase leading-[0.9] text-white;
+    letter-spacing: -0.01em;
+  }
+  .serif-quote {
+    @apply font-serif italic text-mist-100;
+  }
+  .beam {
+    position: absolute;
+    top: -10%;
+    width: 38%;
+    height: 130%;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(127, 227, 245, 0.28), rgba(53, 200, 232, 0.06) 55%, transparent 80%);
+    clip-path: polygon(44% 0, 56% 0, 100% 100%, 0 100%);
+    filter: blur(18px);
+    mix-blend-mode: screen;
+    transform-origin: top center;
   }
   .lead {
     @apply text-base leading-relaxed text-mist-300 sm:text-lg;
@@ -112,6 +142,20 @@
   }
 }
 
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -1%); }
+  80% { transform: translate(3%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(-4deg); opacity: 0.8; }
+  50% { transform: rotate(4deg); opacity: 1; }
+}
+.sway { animation: sway 9s ease-in-out infinite; }
+
 @keyframes dash {
   to {
     stroke-dashoffset: -40;
@@ -143,5 +187,6 @@
 
 @media print {
   .no-print { display: none !important; }
+  body::after { display: none !important; }
   html, body { background: #fff !important; color: #0b1220 !important; }
 }

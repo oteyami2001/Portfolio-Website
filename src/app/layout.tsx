@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { fontDisplay, fontMono, fontSans } from "./fonts";
+import { fontDisplay, fontMono, fontSans, fontSerif } from "./fonts";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Assistant } from "@/components/Assistant";
@@ -55,7 +55,7 @@ const personJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fontSans.variable} ${fontDisplay.variable} ${fontMono.variable}`}>
+    <html lang="en" className={`${fontSans.variable} ${fontDisplay.variable} ${fontSerif.variable} ${fontMono.variable}`}>
       <body>
         <a href="#main" className="sr-only z-[200] rounded-full bg-cyan-400 px-4 py-2 font-semibold text-ink-950 focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
           Skip to content

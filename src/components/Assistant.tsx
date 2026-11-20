@@ -170,12 +170,13 @@ export function Assistant() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-label={open ? "Close portfolio assistant" : "Open portfolio assistant"}
-        className="group fixed bottom-5 right-5 z-[60] flex h-14 items-center gap-2 rounded-full border border-cyan-300/30 bg-ink-900/90 pl-4 pr-5 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(53,200,232,0.7)] backdrop-blur transition hover:border-cyan-300/70 sm:bottom-6 sm:right-6"
+        className="group fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-cyan-300 to-azure-500 text-ink-950 shadow-[0_10px_40px_-6px_rgba(53,200,232,0.8)] transition hover:scale-105 sm:bottom-6 sm:right-6"
       >
-        <span className="relative flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-cyan-300 to-azure-500 text-ink-950">
-          {open ? <X className="h-4 w-4" aria-hidden="true" /> : <Sparkles className="h-4 w-4" aria-hidden="true" />}
+        {!open ? <span className="absolute inset-0 animate-ping rounded-full bg-cyan-300/30 [animation-duration:2.6s]" aria-hidden="true" /> : null}
+        {open ? <X className="relative h-5 w-5" aria-hidden="true" /> : <Sparkles className="relative h-5 w-5" aria-hidden="true" />}
+        <span className="pointer-events-none absolute right-16 hidden whitespace-nowrap rounded-full border border-cyan-300/20 bg-ink-900/90 px-3 py-1.5 font-mono text-[0.68rem] uppercase tracking-[0.14em] text-white opacity-0 transition group-hover:opacity-100 sm:block" aria-hidden="true">
+          {open ? "Close" : "Ask about Thierry"}
         </span>
-        <span className="hidden sm:inline">{open ? "Close" : "Ask about Thierry"}</span>
       </button>
     </div>
   );

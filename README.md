@@ -4,7 +4,7 @@ A personal portfolio for Thierry Oteyami (Cloud Engineer, Cloud Solutions Archit
 
 ## Features
 
-- **Cinematic home page.** A 3D cloud-region globe drawn on canvas (no WebGL dependency, pauses when off-screen), a skippable "terraform apply" intro shown once per session, and scroll-revealed sections.
+- **Cinematic home page.** Full-screen, scroll-driven scenes (`src/components/cinema/`): a lit portrait with light beams, an animated network field, floating service tags and headlines that fade in and out as you scroll. Also a skippable loading screen (once per session), a horizontal scroll timeline, a clickable knowledge graph and a film-grain overlay. All motion is turned off when the visitor prefers reduced motion.
 - **Interactive architecture diagrams.** Data-driven SVG diagrams for each project. Every component can be selected with the mouse, by touch or with the keyboard, and each diagram has a text alternative.
 - **Skills topology.** Six capability domains mapped to AWS, Azure and OCI services, with a tabbed skills inventory.
 - **Animated career timeline** with a scroll-linked progress rail.

@@ -29,8 +29,10 @@ export default function AboutPage() {
       <section className="container-site" aria-label="Profile">
         <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
           <Reveal className="lg:sticky lg:top-28 lg:self-start">
-            <div className="overflow-hidden rounded-[1.75rem] border border-cyan-300/20">
-              <Image src={profile.photo} alt={`Portrait of ${profile.name}`} width={800} height={800} priority className="h-auto w-full" sizes="(max-width: 1024px) 90vw, 420px" />
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-cyan-300/20 bg-[radial-gradient(30rem_24rem_at_50%_30%,rgba(47,107,255,0.45),transparent_65%),linear-gradient(180deg,#0B1220,#03070F)]">
+              <span className="beam sway left-[30%] opacity-80" aria-hidden="true" />
+              <div className="absolute inset-[18%] rounded-full bg-cyan-400/25 blur-[60px]" aria-hidden="true" />
+              <Image src="/images/thierry-cutout.webp" alt={`Portrait of ${profile.name}`} width={800} height={800} priority className="relative h-auto w-full" style={{ filter: "drop-shadow(0 0 1px rgba(127,227,245,.9)) drop-shadow(0 0 20px rgba(53,200,232,.45)) contrast(1.05) saturate(.9)" }} sizes="(max-width: 1024px) 90vw, 420px" />
             </div>
             <dl className="mt-6 grid gap-3">
               {facts.map((f) => (
