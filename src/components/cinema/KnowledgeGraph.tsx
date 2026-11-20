@@ -1,7 +1,8 @@
 "use client";
 
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useMemo, useState } from "react";
 import { certifications, education, experience, profile } from "@/data/profile";
@@ -93,7 +94,7 @@ export function KnowledgeGraph() {
   const byId = useMemo(() => Object.fromEntries(nodes.map((n) => [n.id, n])), [nodes]);
   const [active, setActive] = useState<string | null>(null);
   const [filter, setFilter] = useState<Cluster | null>(null);
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const sel = active ? byId[active] : null;
   const linked = new Set(active ? edges.flatMap(([a, b]) => (a === active ? [b] : b === active ? [a] : [])) : []);
 

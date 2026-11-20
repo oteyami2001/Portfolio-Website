@@ -1,7 +1,8 @@
 "use client";
 
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import Image from "next/image";
-import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { useRef, type ReactNode } from "react";
 import { NetworkField } from "./NetworkField";
 import { span } from "./keyframes";
@@ -105,7 +106,7 @@ function PortraitLayer({ p, progress }: { p: Portrait; progress: MotionValue<num
 /** Full-screen, scroll-driven scene: sticky stage + timed copy beats. */
 export function CineScene({ id, label, length = 3, beats, portrait = {}, density = 1, beams = true, extras }: Props) {
   const ref = useRef<HTMLElement>(null);
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
 
   const stage = (

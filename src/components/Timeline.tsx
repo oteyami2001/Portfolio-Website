@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { useRef } from "react";
 import type { Role } from "@/data/profile";
 
@@ -12,7 +13,7 @@ const TYPE_COLOR: Record<Role["type"], string> = {
 /** Vertical career timeline with a scroll-linked progress rail. No scroll-jacking. */
 export function Timeline({ roles, compact = false }: { roles: Role[]; compact?: boolean }) {
   const ref = useRef<HTMLOListElement>(null);
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 75%", "end 60%"] });
   const scaleY = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
 

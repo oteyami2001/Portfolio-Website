@@ -1,7 +1,8 @@
 "use client";
 
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import Link from "next/link";
-import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import type { MouseEvent } from "react";
 import type { Project } from "@/data/projects";
@@ -9,7 +10,7 @@ import { GitHubIcon } from "./BrandIcons";
 import { MiniDiagram } from "./MiniDiagram";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const mx = useMotionValue(0.5);
   const my = useMotionValue(0.5);
   const rx = useSpring(useTransform(my, [0, 1], [5, -5]), { stiffness: 200, damping: 20 });

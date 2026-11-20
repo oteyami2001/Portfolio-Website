@@ -1,7 +1,8 @@
 "use client";
 
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Activity, Boxes, Database, Network, ShieldCheck, Workflow } from "lucide-react";
 import { useState, type KeyboardEvent } from "react";
 import { capabilities } from "@/data/profile";
@@ -19,7 +20,7 @@ const PROVIDERS = [
 /** Interactive capability topology: six domains orbiting a core, each revealing services per cloud. */
 export function CloudTopology() {
   const [selected, setSelected] = useState(capabilities[0].id);
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const cap = capabilities.find((c) => c.id === selected)!;
   const n = capabilities.length;
   const positions = capabilities.map((_, i) => {

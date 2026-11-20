@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useMotionValue, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
+import { motion, useMotionValue, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { span } from "./keyframes";
 
@@ -12,7 +13,7 @@ const TONE = { cyan: "#35C8E8", amber: "#F3B65D", blue: "#5B8CFF" };
 export function HorizontalTimeline({ items }: { items: Milestone[] }) {
   const ref = useRef<HTMLElement>(null);
   const track = useRef<HTMLOListElement>(null);
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const distance = useMotionValue(0);
   const [wide, setWide] = useState(false);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });

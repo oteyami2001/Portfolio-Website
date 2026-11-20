@@ -1,13 +1,14 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState, type KeyboardEvent } from "react";
 import { skillGroups } from "@/data/profile";
 
 /** Tabbed skills view grouped by platform / discipline. */
 export function SkillsMatrix() {
   const [active, setActive] = useState(skillGroups[0].id);
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const group = skillGroups.find((g) => g.id === active)!;
 
   const onKey = (e: KeyboardEvent<HTMLDivElement>) => {
